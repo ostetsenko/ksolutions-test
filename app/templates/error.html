@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% trans %}Something wrong :({% endtrans %}</h2>
+    <table class="table">
+        <thead class="thead-light table-bordered">
+        <tr>
+            <th scope="col">{% trans %}Title{% endtrans %}</th>
+            <th scope="col">{% trans %}Description{% endtrans %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for title, message in messages.items() %}
+            <tr>
+                <td>{{ title }}</td>
+                <td>{{ message }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-info btn-block" href={{ url_for('index') }}>{% trans %}Go back{% endtrans %}</a>
+{% endblock %}

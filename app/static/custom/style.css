@@ -1,0 +1,32 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.form-group>label{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-header{
+  position: center;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}

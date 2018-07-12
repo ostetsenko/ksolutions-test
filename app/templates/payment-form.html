@@ -1,0 +1,7 @@
+
+<form method="{{ method }}" action="{{ url }}">
+    {% for key, value in form.items() %}
+        <input type="hidden" name="{{ key }}" value="{{ value }}"/>
+    {% endfor %}
+    <button type="submit" class="btn btn-info btn-block">{% trans %}Confirm{% endtrans %}</button>
+</form>

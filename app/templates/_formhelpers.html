@@ -1,0 +1,14 @@
+{% macro render_bootstrap_field(field, type='input') %}
+
+<div class="form-group {% if field.errors %} error {% endif %}">
+    <label class="control-label">{{ field.label }}</label>
+    <div>
+        {{ field(class='form-control', type=type)|safe }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <p class="alert-danger">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% from "_formhelpers.html" import render_bootstrap_field %}
+
+
+{% block content %}
+    {% if  payment in ['pay', 'invoice']%}
+        <h1 class="form-header">{% trans %}Confirm request to {% endtrans %}{{ payment }}</h1>
+        {% include 'payment-form.html' %}
+    {% else %}
+        <h1 class="form-header">{% trans %}Start payment page{% endtrans %}</h1>
+        <form method="POST" action="{{ url_for('index') }}">
+            {{ form.csrf_token }}
+            {{ render_bootstrap_field(form.amount) }}
+            {{ render_bootstrap_field(form.currency) }}
+            {{ render_bootstrap_field(form.description) }}
+            <button type="submit" class="btn btn-info btn-block">{% trans %}Pay{% endtrans %}</button>
+        </form>
+    {% endif %}
+
+{% endblock %}
